@@ -1,7 +1,7 @@
 from random import randint
 
-MIN_VALUE = -100
-MAX_VALUE = 100
+MIN_VALUE = -9
+MAX_VALUE = 9
 
 
 def print_matrix(matrix: list[list[int]]) -> None:
@@ -34,12 +34,12 @@ if __name__ == "__main__":
     while True:
         try:
             M = int(input("Enter matrix size: "))
-
-            if M <= 0:
-                raise ValueError("Size must be greater than zero")
-            break
         except ValueError as e:
             print(f"Invalid input! Please enter a valid positive integer.\nError: {e}")
+
+        if M <= 0:
+            print("Size must be greater than zero")
+        break
 
     matrix = generate_random_matrix(M)
     print("Generated matrix: ")
