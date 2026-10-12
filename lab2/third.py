@@ -46,11 +46,11 @@ def analyze_students(students_data: dict[str, set[str]]):
         skills2 = students_data[name2]
 
         # set comparison
-        if skills1 == skills2:
+        if skills1.issubset(skills2) and skills2.issubset(skills1):
             same_skills.append((name1, name2))
-        elif skills1 > skills2:
+        elif skills1.issuperset(skills2):
             supersets.add(name1)
-        elif skills2 > skills1:
+        elif skills2.issuperset(skills1):
             supersets.add(name2)
 
         # jaccard coefficient
