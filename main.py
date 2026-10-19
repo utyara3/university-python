@@ -1,5 +1,5 @@
-a = [1, 2, 3]
-b = [10, 10, 10]
+import re
 
-for i in zip(a, b):
-    print(i[0] * i[1])
+print(re.search(r"cat", "a cat b"))  # найдёт cat
+print(re.search(r"^cat", "a cat b"))  # None
+print(re.search(r"cat$", "a cat b"))  # найдёт cat
