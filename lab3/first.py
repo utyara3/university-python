@@ -1,11 +1,14 @@
 from collections.abc import Callable
 
 
-def calc_average_mark(student: tuple[str, list]) -> tuple[str, float]:
-    student_name: str = student[0]
-    student_marks: list[int] = student[1]
+def calc_average_mark(student: tuple[str, list[int]]) -> tuple[str, float]:
+    student_name, student_marks = student
 
-    return student_name, round(sum(student_marks) / len(student_marks), 2)
+    if not student_marks:
+        return student_name, 0.0
+
+    average: float = round(sum(student_marks) / len(student_marks), 2)
+    return student_name, average
 
 
 def print_marks(
