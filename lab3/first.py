@@ -1,22 +1,16 @@
-from collections.abc import Callable
+def validate_and_calc_average(student: tuple[str, list[int]]) -> tuple[str, float]:
+    name, marks = student
 
+    if not isinstance(marks, list) or not marks:
+        raise ValueError(f"Student {name} has no marks.")
 
-def calc_average_mark(student: tuple[str, list[int]]) -> tuple[str, float]:
-    student_name, student_marks = student
+    if not all(map(lambda x: isinstance(x, int) and 2 <= x <= 5, marks)):  # noqa
+        raise ValueError(
+            f"Student {name} has incorrect marks: {marks}. Only integers from 2 to 5 allowed"
+        )
 
-    if not student_marks:
-        return student_name, 0.0
-
-    average: float = round(sum(student_marks) / len(student_marks), 2)
-    return student_name, average
-
-
-def print_marks(
-    calc_func: Callable[[tuple[str, list[int]]], tuple[str, float]],
-    students: dict[str, list[int]],
-):
-    """Применяем calc_func к каждому student"""
-    print(dict(map(calc_func, students.items())))
+    average = round(sum(marks) / len(marks), 2)
+    return name, average
 
 
 if __name__ == "__main__":
@@ -26,11 +20,17 @@ if __name__ == "__main__":
         "Паша": [5, 5, 4, 5, 5, 5],
         "Гриша": [5, 4, 5, 2, 3, 2],
     }
+    try:
+        # a. dict with average marks
+        res_average = dict(map(validate_and_calc_average, students.items()))
 
-    # a.
-    print("a.")
-    print_marks(calc_average_mark, students)
+        print("a. dict with average marks")
+        print(res_average)
 
-    # b.
-    print("b.")
-    print(sum(map(len, students.values())))
+        # b. calc total number of ratings for entire group
+        total_marks_count = sum(map(len, students.values()))
+
+        print(f"\nb. Total marks: {total_marks_count}")
+
+    except ValueError as e:
+        print(f"Ошибка валидации данных: {e}")
