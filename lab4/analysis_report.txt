@@ -1,0 +1,30 @@
+a. Average response size by status code:
+  Status 200: 6059 bytes
+  Status 201: 7558 bytes
+  Status 204: 5346 bytes
+  Status 301: 6861 bytes
+  Status 302: 5635 bytes
+  Status 400: 6021 bytes
+  Status 401: 4042 bytes
+  Status 403: 6835 bytes
+  Status 404: 6357 bytes
+  Status 500: 5372 bytes
+  Status 502: 5594 bytes
+
+b. Total number of errors (4XX, 5XX): 50
+
+c. Statistics collected within the specified time range:
+  Total requests in range: 72
+  Errors (4XX, 5XX) in range: 37
+  Average response size by status code in range:
+    Status 200: 6104 bytes
+    Status 201: 9040 bytes
+    Status 204: 5945 bytes
+    Status 301: 6236 bytes
+    Status 302: 5946 bytes
+    Status 400: 6339 bytes
+    Status 401: 4055 bytes
+    Status 403: 6468 bytes
+    Status 404: 5958 bytes
+    Status 500: 5512 bytes
+    Status 502: 6006 bytes
