@@ -1,3 +1,4 @@
 .direnv/
 .envrc
 *.zip
+lab4/test_archive/
