@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 from pathlib import Path
 
 
@@ -11,7 +12,7 @@ def get_archive_path() -> str:
     archive_path = input("Enter path to archive: ")
 
     if not os.path.exists(archive_path) or not os.path.isfile(archive_path):
-        exit(f"'{archive_path}' must be an existing archive!")
+        sys.exit(f"'{archive_path}' must be an existing archive!")
 
     return archive_path
 
