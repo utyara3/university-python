@@ -25,7 +25,9 @@ if __name__ == "__main__":
     archive_path = Path(get_archive_path())
 
     all_extensions = "".join(archive_path.suffixes)
-    name_without_ext = Path(str(archive_path).replace(all_extensions, ""))
+    name_without_ext = archive_path
+    while name_without_ext.suffix:
+        name_without_ext = name_without_ext.with_suffix("")
 
     unarchive(str(archive_path), name_without_ext)
 
