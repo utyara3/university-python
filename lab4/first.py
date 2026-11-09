@@ -50,7 +50,9 @@ def get_time_range() -> tuple[datetime, datetime]:
     return start_time, end_time
 
 
-def file_analysis(file_path: str, start_time: datetime, end_time: datetime):
+def file_analysis(
+    file_path: str, start_time: datetime, end_time: datetime
+) -> tuple[dict[int, int], int, dict[str, int]]:
     size_by_status = defaultdict(list)
     num_of_errors = 0
 
