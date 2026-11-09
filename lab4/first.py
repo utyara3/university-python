@@ -60,7 +60,7 @@ def file_analysis(
     range_num_of_errors = 0
     range_size_by_status = defaultdict(list)
 
-    with open(file_path, "r", encoding="utf-8", errors="ignore") as log_file:
+    with open(file_path, "r", encoding="utf-8") as log_file:
         for line_num, line in enumerate(log_file, 1):
             line = line.strip()
             if not line:
